@@ -1,6 +1,7 @@
 // Variables
 const gridContainer = document.querySelector('.grid-container');
-const gridItem  = document.querySelector('.gridItem');
+const gridItem  = document.querySelector('.grid-item');
+const gridInfo = document.querySelector('#grid-info');
 
 let n = 5;
 let rows = n;
@@ -29,8 +30,9 @@ function generateGrid() {
 
     for (let i = 0; i < n * n; i++) { //Create boxes
         const gridItem = document.createElement('div');
-        gridItem.classList.add('gridItem');
+        gridItem.classList.add('grid-item');
         gridContainer.appendChild(gridItem);
+        gridInfo.textContent = `${n} x ${n}`;
 
         // left click to draw
         gridItem.addEventListener('click', () => {
