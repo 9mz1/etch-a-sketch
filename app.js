@@ -1,5 +1,6 @@
 // Variables
 const gridContainer = document.querySelector('.grid-container');
+const gridItem  = document.querySelector('.gridItem');
 
 let n = 5;
 let rows = n;
@@ -26,10 +27,21 @@ function generateGrid() {
     gridContainer.style.width = `${widthAndHeight}px`;
     gridContainer.style.height = `${widthAndHeight}px`;
 
-    for (let i = 0; i < n * n; i++) {
+    for (let i = 0; i < n * n; i++) { //Create boxes
         const gridItem = document.createElement('div');
         gridItem.classList.add('gridItem');
         gridContainer.appendChild(gridItem);
+
+        // left click to draw
+        gridItem.addEventListener('click', () => {
+            gridItem.classList.add ('black');
+        })
+
+        // right click to erase
+        gridItem.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            gridItem.classList.remove ('black');
+        })
     }
 }
 
