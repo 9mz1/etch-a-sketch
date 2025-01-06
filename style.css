@@ -1,7 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Rubik+Mono+One&display=swap');
+
 * {
     margin: 0;
     padding: 0; 
     box-sizing: border-box;
+    font-family: 'Rubik Mono One', serif;
+}
+
+.black {
+    background-color: black;
+}
+
+
+body {
+    background-color: #F8F5EB;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 100vh;
+    margin: 0 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-family: 'Bowlby One SC', serif;
+    color: #EF4269;
+    text-align: center;
+    -webkit-text-stroke: 0.8px black;
 }
 
 .grid-container {
@@ -15,6 +50,6 @@
     border: 1px solid black;
 }
 
-.black {
-    background-color: black;
+p {
+    text-align: center;
 }
