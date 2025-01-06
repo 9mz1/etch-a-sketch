@@ -4,9 +4,7 @@ const gridItem  = document.querySelector('.grid-item');
 const gridInfo = document.querySelector('#grid-info');
 
 let n = 5;
-let rows = n;
-let columns = n;
-let widthAndHeight = n * 30
+let widthAndHeight = 750; 
 
 //Change hegiht and width of grid according to the number of boxes
 gridContainer.style.width = `${widthAndHeight}px`;
@@ -23,16 +21,16 @@ function gridSize() {
 
 function generateGrid() {
     gridContainer.innerHTML = "";
-    //Change hegiht and width of grid according to the number of boxes
-    let widthAndHeight = n * 30
-    gridContainer.style.width = `${widthAndHeight}px`;
-    gridContainer.style.height = `${widthAndHeight}px`;
+    //Calculate grid item size
+    const itemSize = widthAndHeight / n;
 
     for (let i = 0; i < n * n; i++) { //Create boxes
         const gridItem = document.createElement('div');
         gridItem.classList.add('grid-item');
-        gridContainer.appendChild(gridItem);
-        gridInfo.textContent = `${n} x ${n}`;
+
+        // Apply Size change to grid item
+        gridItem.style.width = `${itemSize}px`;
+        gridItem.style.height = `${itemSize}px`;
 
         // left click to draw
         gridItem.addEventListener('click', () => {
@@ -44,6 +42,9 @@ function generateGrid() {
             e.preventDefault();
             gridItem.classList.remove ('black');
         })
+
+        gridContainer.appendChild(gridItem);
+        gridInfo.textContent = `${n} x ${n}`;
     }
 }
 
