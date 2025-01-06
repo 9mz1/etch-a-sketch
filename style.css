@@ -11,6 +11,13 @@
     background-color: black;
 }
 
+button {
+    cursor: pointer;
+
+    background-color: #7BA4B3;
+    border: 3px solid black;
+}
+
 
 body {
     background-color: #F8F5EB;
@@ -32,11 +39,36 @@ body {
     justify-content: space-between;
 }
 
-h1 {
+.main .container .left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 50px;
+}
+
+.main .container .left h1 {
     font-family: 'Bowlby One SC', serif;
+    font-size: 60px;
     color: #EF4269;
     text-align: center;
     -webkit-text-stroke: 0.8px black;
+}
+
+.main .container .left .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.main .container .left button {
+    font-size: 18px;
+    padding: 20px 10px;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+.main .container .left button:hover {
+    box-shadow: 2px 2px 0 black;
 }
 
 .grid-container {
@@ -52,4 +84,6 @@ h1 {
 
 p {
     text-align: center;
+    color: #EF4269;
+    -webkit-text-stroke: 1.8px black;
 }
