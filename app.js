@@ -5,9 +5,11 @@ const gridInfo = document.querySelector('#grid-info');
 
 const resetBtn = document.querySelector('#reset');
 const gridSizeBtn = document.querySelector('#grid-size');
+const rainbowBtn = document.querySelector('#rainbow-btn');
 
 let n = 8;
 let widthAndHeight = 750; 
+let rainbow = 0;
 
 //Change hegiht and width of grid according to the number of boxes
 gridContainer.style.width = `${widthAndHeight}px`;
@@ -36,9 +38,18 @@ function generateGrid() {
         gridItem.style.height = `${itemSize}px`;
 
         // left click to draw
+        gridItem.addEventListener('mouseover', () => {
+            if (rainbow === 1) {
+                const randomColor = `rgb(${numberGen()}, ${numberGen()}, ${numberGen()})`;
+                gridItem.style.backgroundColor = randomColor;
+            }
+        });
+
         gridItem.addEventListener('click', () => {
-            gridItem.classList.add ('black');
-        })
+            if (rainbow === 0) {
+                gridItem.classList.add('black');
+            }
+        });
 
         // right click to erase
         gridItem.addEventListener('contextmenu', (e) => {
@@ -51,6 +62,21 @@ function generateGrid() {
     }
 }
 
+// Rainbow Functions
+function numberGen() {
+    let randomNo = Math.floor(Math.random() * 255);
+    return randomNo;
+}
+function rainbowMode() {
+    if  (rainbow) {
+        rainbow = 0;
+        rainbowBtn.style.backgroundColor = "#7BA4B3";
+    } else if(!rainbow) {
+        rainbow = 1;
+        rainbowBtn.style.backgroundColor = "#EF4269";
+    }
+}
+
 //Event Listeners
 resetBtn.addEventListener('click', () => {
     generateGrid();
@@ -58,6 +84,10 @@ resetBtn.addEventListener('click', () => {
 
 gridSizeBtn.addEventListener('click', () => {
     gridSize();
+})
+
+rainbowBtn.addEventListener('click', () => {
+    rainbowMode();
 })
 
 generateGrid();
