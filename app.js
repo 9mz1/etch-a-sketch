@@ -3,7 +3,10 @@ const gridContainer = document.querySelector('.grid-container');
 const gridItem  = document.querySelector('.grid-item');
 const gridInfo = document.querySelector('#grid-info');
 
-let n = 5;
+const resetBtn = document.querySelector('#reset');
+const gridSizeBtn = document.querySelector('#grid-size');
+
+let n = 8;
 let widthAndHeight = 750; 
 
 //Change hegiht and width of grid according to the number of boxes
@@ -48,4 +51,13 @@ function generateGrid() {
     }
 }
 
-gridSize();
+//Event Listeners
+resetBtn.addEventListener('click', () => {
+    generateGrid();
+})
+
+gridSizeBtn.addEventListener('click', () => {
+    gridSize();
+})
+
+generateGrid();
